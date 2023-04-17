@@ -33,6 +33,11 @@ test {
     finalizedBy jacocoTestReport
 }
 
+jacoco {
+    toolVersion = "0.8.8"
+    reportsDirectory = layout.buildDirectory.dir('customJacocoReportDir')
+}
+
 jacocoTestReport {
     dependsOn test
     reports {
