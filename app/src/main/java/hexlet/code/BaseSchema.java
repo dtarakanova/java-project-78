@@ -21,7 +21,7 @@ public class BaseSchema {
         if ((toCheck == null || toCheck.equals(""))) {
             if (!isRequired) {
                 return true;
-            } else {
+            } else if (isRequired) {
                 return false;
             }
         } else {
@@ -30,7 +30,7 @@ public class BaseSchema {
                     return false;
                 }
             }
-            return true;
         }
+        return true;
     }
 }
