@@ -9,7 +9,7 @@ public final class StringSchema extends BaseSchema {
         addPredicate(isString);
     }
 
-    public StringSchema required() {
+    public StringSchema required() { //test
         setRequired(true);
         return this;
     }
