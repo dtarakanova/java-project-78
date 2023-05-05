@@ -18,10 +18,12 @@ public class BaseSchema {
     }
 
     public final boolean isValid(Object toCheck) {
-        if (!isRequired && (toCheck == null || toCheck.equals(""))) {
-            return true;
-        } else if (isRequired && (toCheck == null || toCheck.equals(""))) {
-            return false;
+        if ((toCheck == null || toCheck.equals(""))) {
+            if (!isRequired) {
+                return true;
+            } else {
+                return false;
+            }
         } else {
             for (Predicate predicate : predicates) {
                 if (!predicate.test(toCheck)) {
