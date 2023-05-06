@@ -20,4 +20,17 @@ public class MapSchema extends BaseSchema {
         addPredicate(sizeof);
         return this;
     }
+
+    public MapSchema shape(Map<String, BaseSchema> schemas) {
+        Predicate<Map<?, ?>> shape = x -> {
+            for (Map.Entry<String, BaseSchema> entry : schemas.entrySet()) {
+                if (!entry.getValue().isValid(x.get(entry.getKey()))) {
+                    return false;
+                }
+            }
+            return true;
+        };
+        addPredicate(shape);
+        return this;
+    }
 }
